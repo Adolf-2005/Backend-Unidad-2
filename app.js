@@ -12,7 +12,7 @@ var estudiantes = require('./routes/estudiantes.routes');
 
 var app = express();
 
-// view engine setup
+// view engine setup 
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 
