@@ -1,5 +1,5 @@
 const { v4: uuidv4 } = require('uuid');
-const query = require('../config/query');
+const query = require('../config/query'); // se importa la función para realizar consultas a la BD
 
 class Estudiante {
 
