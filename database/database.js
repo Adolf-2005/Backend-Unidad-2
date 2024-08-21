@@ -4,9 +4,9 @@ const estudiantes = [
     {
         id: uuidv4(),
         nombre: "Alonso Moreno",
-        edad: 22,
+        edad: 23,
         carrera: "Ingenieria Industrial"
     }
 ]
 
-module.exports = estudiantes; 
+module.exports = estudiantes;
