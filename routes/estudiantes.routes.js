@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Estudiantes = require('../controllers/estudiantes')
 
-/* GET Estudiantes */
+/* GET Estudiantes. */
 router.get('/', function (req, res, next) {
   Estudiantes.listar()
     .then((resultado) => {
@@ -13,7 +13,7 @@ router.get('/', function (req, res, next) {
     })
 });
 
-/* POST Estudiantes */
+/* POST Estudiantes. */
 router.post('/', function (req, res, next) {
   Estudiantes.agregar(req.body)
     .then((resultado) => {
@@ -24,7 +24,7 @@ router.post('/', function (req, res, next) {
     })
 })
 
-/* GET Estudiante por ID */
+/* GET Estudiante por ID. */
 router.get('/:id', function (req, res, next) {
   const { id } = req.params
 
@@ -37,7 +37,7 @@ router.get('/:id', function (req, res, next) {
     })
 });
 
-/* GET Estudiante por Carrera (Nuevo Endpoint) */
+/* GET Estudiante por Carrera (Nuevo Endpoint). */
 router.get('/carrera/:carrera', function (req, res, next) {
   const { carrera } = req.params
 
@@ -50,7 +50,7 @@ router.get('/carrera/:carrera', function (req, res, next) {
     })
 });
 
-/* GET Estudiante por Rango de Edad(Nuevo Endpoint) */
+/* GET Estudiante por Rango de Edad(Nuevo Endpoint). */
 router.get('/edad/:rangomin/:rangomax', function (req, res, next) {
   const { rangomin, rangomax } = req.params
 
@@ -63,7 +63,7 @@ router.get('/edad/:rangomin/:rangomax', function (req, res, next) {
     })
 });
 
-/* GET ultimos 5 estudiantes registrados */
+/* GET ultimos 5 estudiantes registrados. */
 router.get('/ultimos/5', function (req, res, next) {
   Estudiantes.mostrarUltimos()
     .then((resultado) => {
@@ -74,7 +74,7 @@ router.get('/ultimos/5', function (req, res, next) {
     })
 });
 
-/* PUT Estudiantes */
+/* PUT Estudiantes. */
 router.put('/:id', function (req, res, next) {
   const { id } = req.params
 
@@ -87,7 +87,7 @@ router.put('/:id', function (req, res, next) {
   })
 })
 
-/* DELETE Estudiantes */
+/* DELETE Estudiantes. */
 router.delete('/:id', function (req, res, next) {
 
   const { id } = req.params
