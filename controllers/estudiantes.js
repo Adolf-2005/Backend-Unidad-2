@@ -6,7 +6,7 @@ class Estudiante {
     listar() {
         return new Promise(async (resolve, reject) => {
             try {
-                const sql = 'SELECT * FROM estudiantes';
+                const sql = 'SELECT * FROM listaestudiantes';
                 const response = await query(sql);
 
                 return resolve({
@@ -38,7 +38,7 @@ class Estudiante {
                     return reject('Debes ingresar una valida')
                 }
 
-                const sql = 'SELECT * FROM estudiantes';
+                const sql = 'SELECT * FROM listaestudiantes';
                 const estudiantes = await query(sql);
 
                 for (let i = 0; i < estudiantes.length; i++) {
@@ -49,7 +49,7 @@ class Estudiante {
 
                 const values = [estudiante.nombre, estudiante.edad, estudiante.carrera]
 
-                const sql2 = 'INSERT INTO estudiantes (nombre, edad, carrera) VALUES (?, ?, ?)';
+                const sql2 = 'INSERT INTO listaestudiantes (nombre, edad, carrera) VALUES (?, ?, ?)';
                 await query(sql2, values);
 
                 return resolve({
@@ -69,7 +69,7 @@ class Estudiante {
     mostrar(id) {
         return new Promise(async (resolve, reject) => {
             try {
-                const sql = 'SELECT id, nombre, edad, carrera FROM estudiantes WHERE id=?';
+                const sql = 'SELECT id, nombre, edad, carrera FROM listaestudiantes WHERE id=?';
                 const estudiante = await query(sql, Number(id));
 
                 if (estudiante.length === 0) {
@@ -97,7 +97,7 @@ class Estudiante {
     mostrarCarrera(carrera) {
         return new Promise(async (resolve, reject) => {
             try {
-                const sql = 'SELECT id, nombre, edad, carrera FROM estudiantes WHERE carrera=?';
+                const sql = 'SELECT id, nombre, edad, carrera FROM listaestudiantes WHERE carrera=?';
                 const estudiantes = await query(sql, carrera);
 
                 if (estudiantes.length === 0) {
@@ -132,7 +132,7 @@ class Estudiante {
                     })
                 }
 
-                const sql = 'SELECT id, nombre, edad, carrera FROM estudiantes WHERE edad BETWEEN ? AND ?';
+                const sql = 'SELECT id, nombre, edad, carrera FROM listaestudiantes WHERE edad BETWEEN ? AND ?';
                 const values = [rangomin, rangomax]
                 const estudiantes = await query(sql, values);
 
@@ -161,7 +161,7 @@ class Estudiante {
     mostrarUltimos() {
         return new Promise(async (resolve, reject) => {
             try {
-                const sql = 'SELECT * FROM estudiantes ORDER BY id DESC LIMIT 5';
+                const sql = 'SELECT * FROM listaestudiantes ORDER BY id DESC LIMIT 5';
                 const estudiantes = await query(sql);
 
                 if (estudiantes.length === 0) {
@@ -200,7 +200,7 @@ class Estudiante {
                     return reject('Debes ingresar una valida')
                 }
 
-                const sql = 'SELECT * FROM estudiantes';
+                const sql = 'SELECT * FROM listaestudiantess';
                 const estudiantes = await query(sql);
 
                 for (let i = 0; i < estudiantes.length; i++) {
@@ -209,7 +209,7 @@ class Estudiante {
                     }
                 }
 
-                const sql2 = 'SELECT id, nombre, edad, carrera FROM estudiantes WHERE id=?';
+                const sql2 = 'SELECT id, nombre, edad, carrera FROM listaestudiantes WHERE id=?';
                 const estudiante_buscado = await query(sql2, Number(id));
 
                 if (estudiante_buscado.length === 0) {
@@ -220,7 +220,7 @@ class Estudiante {
                 }
 
                 const values = [id, estudiante.nombre, estudiante.edad, estudiante.carrera, id]
-                const sql3 = 'UPDATE estudiantes SET id=?,nombre=?,edad=?,carrera=? WHERE id=?';
+                const sql3 = 'UPDATE listaestudiantes SET id=?,nombre=?,edad=?,carrera=? WHERE id=?';
                 const response = await query(sql3, values);
 
                 return resolve({
@@ -240,7 +240,7 @@ class Estudiante {
     eliminar(id) {
         return new Promise(async (resolve, reject) => {
             try {
-                const sql = 'SELECT id, nombre, edad, carrera FROM estudiantes WHERE id=?';
+                const sql = 'SELECT id, nombre, edad, carrera FROM listaestudiantes WHERE id=?';
                 const estudiante = await query(sql, Number(id));
 
                 if (estudiante.length === 0) {
@@ -250,7 +250,7 @@ class Estudiante {
                     })
                 }
 
-                const sql2 = 'DELETE FROM estudiantes WHERE id=?';
+                const sql2 = 'DELETE FROM listaestudiantes WHERE id=?';
                 const response = await query(sql2, Number(id));
 
                 return resolve({
